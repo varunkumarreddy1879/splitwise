@@ -85,4 +85,13 @@ public class GroupService {
     public Group getGroup(Long groupId) {
         return groupRepository.findById(groupId).get();
     }
+
+    public List<Group> UserGroups(Long userId) throws InvalidArgumentException {
+        Optional<User> optionalUser=userRepository.findById(userId);
+        if(optionalUser.isEmpty()){
+            throw new InvalidArgumentException("user with id : "+userId+" doesn't exist.");
+        }
+        User user=optionalUser.get();
+        return groupRepository.findAllByUsers(user);
+    }
 }

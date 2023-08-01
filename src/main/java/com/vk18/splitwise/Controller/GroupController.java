@@ -8,6 +8,9 @@ import com.vk18.splitwise.Service.GroupService;
 import com.vk18.splitwise.Service.UserService;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class GroupController {
 
@@ -69,6 +72,31 @@ public class GroupController {
             response.setResponseStatus(ResponseStatus.FAILED);
             response.setResponseMessage(e.getMessage());
         }
+        return response;
+    }
+
+    public UserGroupsResponseDto UserGroups(UserGroupsRequestDto request){
+        Long userId=request.getUserId();
+
+        UserGroupsResponseDto response=new UserGroupsResponseDto();
+
+        try{
+            List<Group> groups=groupService.UserGroups(userId);
+            response.setGroups(new ArrayList<String>());
+            for(Group group:groups){
+                response.getGroups().add(group.getName());
+            }
+            response.setResponseStatus(ResponseStatus.SUCCESS);
+        }
+        catch(InvalidArgumentException e){
+            response.setResponseStatus(ResponseStatus.FAILED);
+            response.setResponseMessage(e.getMessage());
+        }
+        catch (Exception e){
+            response.setResponseStatus(ResponseStatus.FAILED);
+            response.setResponseMessage("Something went wrong");
+        }
+
         return response;
     }
 }

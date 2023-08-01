@@ -5,4 +5,7 @@ public interface CommandKeywords {
     String UpdateProfile="UpdateProfile";
     String AddGroup="AddGroup";
     String AddMember="AddMember";
+    String History="History";
+    String FAILED="FAILED";
+    String Groups="Groups";
 }
