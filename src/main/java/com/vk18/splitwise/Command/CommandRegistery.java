@@ -10,8 +10,9 @@ import java.util.List;
 public class CommandRegistery {
     List<Command> commands;
 
-    public CommandRegistery(CreateGroupCommand createGroupCommand,RegisterUserCommand registerUserCommand,UpdateProfileCommand updateProfileCommand){
+    public CommandRegistery(AddUserCommand addUserCommand,CreateGroupCommand createGroupCommand,RegisterUserCommand registerUserCommand,UpdateProfileCommand updateProfileCommand){
         commands=new ArrayList<>();
+        commands.add(addUserCommand);
         commands.add(registerUserCommand);
         commands.add(updateProfileCommand);
         commands.add(createGroupCommand);

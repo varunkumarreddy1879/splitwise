@@ -8,13 +8,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.util.Scanner;
+
 @SpringBootApplication
 @EnableJpaAuditing
 public class SplitWiseApplication implements CommandLineRunner {
 
     CommandRegistery commandRegistery;
+    Scanner sc;
 
     public SplitWiseApplication(CommandRegistery commandRegistery){
+        sc=new Scanner(System.in);
         this.commandRegistery=commandRegistery;
     }
     public static void main(String[] args) {
@@ -23,7 +27,15 @@ public class SplitWiseApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String input="018 AddGroup roomamtes";
-        commandRegistery.execute(input);
+
+        while(true){
+            System.out.println("Enter command : ");
+            String input=sc.nextLine();
+            if(input.equals("break")){
+                break;
+            }
+            commandRegistery.execute(input);
+
+        }
     }
 }

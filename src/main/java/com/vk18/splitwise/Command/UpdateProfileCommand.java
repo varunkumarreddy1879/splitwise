@@ -30,7 +30,7 @@ public class UpdateProfileCommand implements Command{
         String[] arr=command.split(" ");
 
         UpdateProfileRequestDto request=new UpdateProfileRequestDto();
-        request.setPhone(arr[0]);
+        request.setUserId(Long.parseLong(arr[0]));
         request.setNewPassword(arr[2]);
 
         UpdateProfileResponseDto response=userController.UpdateProfile(request);

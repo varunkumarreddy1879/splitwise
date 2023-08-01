@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class UpdateProfileRequestDto {
-    private String phone;
+    private Long userId;
     private String newPassword;
 }

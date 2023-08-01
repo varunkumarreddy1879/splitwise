@@ -4,4 +4,5 @@ public interface CommandKeywords {
     String Resgister="Register";
     String UpdateProfile="UpdateProfile";
     String AddGroup="AddGroup";
+    String AddMember="AddMember";
 }

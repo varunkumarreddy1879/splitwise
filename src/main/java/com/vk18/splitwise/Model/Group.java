@@ -15,8 +15,7 @@ public class Group extends BaseModel{
     @ManyToOne
     private User admin;
     private String description;
-    @OneToMany
-    private List<Expense> expenses;
+
     @ManyToMany
     private List<User> users;
 }

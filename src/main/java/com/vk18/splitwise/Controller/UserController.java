@@ -44,7 +44,7 @@ public class UserController {
     }
 
     public UpdateProfileResponseDto UpdateProfile(UpdateProfileRequestDto request){
-        String phone=request.getPhone();
+        Long phone=request.getUserId();
         String newPassword=request.getNewPassword();
 
         User user;

@@ -1,5 +1,6 @@
 package com.vk18.splitwise.Service;
 
+import aj.org.objectweb.asm.ConstantDynamic;
 import com.vk18.splitwise.Exceptions.InvalidUserException;
 import com.vk18.splitwise.Model.User;
 import com.vk18.splitwise.Model.UserStatus;
@@ -59,7 +60,7 @@ public class UserService {
         }
     }
 
-    public User UpdateProfile(String phone, String newPassword) throws InvalidUserException{
+    public User UpdateProfile(Long userId, String newPassword) throws InvalidUserException{
 
         /*
         check user exist or not
@@ -67,15 +68,19 @@ public class UserService {
         else update password
          */
 
-        Optional<User> optionalUser=userRepository.findByPhone(phone);
+        Optional<User> optionalUser=userRepository.findById(userId);
 
         if(optionalUser.isEmpty()){
-            throw new InvalidUserException("No user exist with phone : "+phone);
+            throw new InvalidUserException("No user exist with id : "+userId);
         }
         else{
             User user=optionalUser.get();
             user.setPassword(newPassword);
             return userRepository.save(user);
         }
+    }
+
+    public User getUser(Long userId) {
+        return userRepository.findById(userId).get();
     }
 }

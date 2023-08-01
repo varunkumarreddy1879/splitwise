@@ -29,7 +29,7 @@ public class CreateGroupCommand implements Command{
         String[] arr=command.split(" ");
 
         CreateGroupRequestDto request=new CreateGroupRequestDto();
-        request.setPhone(arr[0]);
+        request.setUserId(Long.parseLong(arr[0]));
         request.setGroupName(arr[2]);
 
         CreateGroupResponseDto response=groupController.CreateGroup(request);
