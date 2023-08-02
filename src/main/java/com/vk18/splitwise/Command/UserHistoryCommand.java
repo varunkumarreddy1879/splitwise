@@ -45,8 +45,9 @@ public class UserHistoryCommand implements Command{
         }
         else{
             System.out.println("----HISTORY----");
+            System.out.println("expenses count : "+response.getUserExpenses().size());
             for(UserExpenceDto userExpenceDto:response.getUserExpenses()){
-                userExpenceDto.toString();
+                System.out.println(userExpenceDto.toString());
             }
         }
 

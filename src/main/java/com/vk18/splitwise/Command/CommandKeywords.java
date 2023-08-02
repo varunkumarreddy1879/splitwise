@@ -8,4 +8,8 @@ public interface CommandKeywords {
     String History="History";
     String FAILED="FAILED";
     String Groups="Groups";
+    String Expense="Expense";
+    String iPay="iPay";
+    String Equal="Equal";
+    String Desc="Desc";
 }

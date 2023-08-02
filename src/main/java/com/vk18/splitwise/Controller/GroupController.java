@@ -99,4 +99,29 @@ public class GroupController {
 
         return response;
     }
+
+    public GroupExpenseEqualShareResponseDto GroupExpenseEqualShare(GroupExpenseEqualShareRequestDto request){
+        Long userId= request.getUserId();
+        Long groupId=request.getGroupId();
+        int amount= request.getAmount();
+        String description=request.getDescription();
+
+        GroupExpenseEqualShareResponseDto response=new GroupExpenseEqualShareResponseDto();
+
+        try{
+            groupService.GroupExpenseEqualShare(userId,groupId,amount,description);
+            response.setResponseMessage("Expense added to group succesfully.");
+            response.setResponseStatus(ResponseStatus.SUCCESS);
+        }
+        catch(InvalidArgumentException e){
+            response.setResponseMessage(e.getMessage());
+            response.setResponseStatus(ResponseStatus.FAILED);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            response.setResponseMessage("Something went wrong.");
+            response.setResponseStatus(ResponseStatus.FAILED);
+        }
+        return response;
+    }
 }

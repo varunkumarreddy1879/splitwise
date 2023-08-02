@@ -12,4 +12,6 @@ import java.util.List;
 public interface UserExpenseRepository extends JpaRepository<UserExpence,Long> {
     public List<UserExpence> findAllByUser(User user);
 
+    public UserExpence save(UserExpence userExpence);
+
 }
