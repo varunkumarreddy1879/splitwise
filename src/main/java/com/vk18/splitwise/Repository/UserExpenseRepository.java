@@ -1,5 +1,6 @@
 package com.vk18.splitwise.Repository;
 
+import com.vk18.splitwise.Model.Expense;
 import com.vk18.splitwise.Model.User;
 import com.vk18.splitwise.Model.UserExpence;
 import com.vk18.splitwise.Service.UserExpenseService;
@@ -14,4 +15,6 @@ public interface UserExpenseRepository extends JpaRepository<UserExpence,Long> {
 
     public UserExpence save(UserExpence userExpence);
 
+
+    public  List<UserExpence> findAllByExpenseIn(List<Expense> expenses);
 }

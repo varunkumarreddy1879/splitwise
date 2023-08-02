@@ -12,4 +12,5 @@ public interface CommandKeywords {
     String iPay="iPay";
     String Equal="Equal";
     String Desc="Desc";
+    String SettleUp="SettleUp";
 }

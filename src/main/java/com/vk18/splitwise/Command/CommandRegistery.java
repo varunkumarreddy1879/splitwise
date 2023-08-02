@@ -10,8 +10,10 @@ import java.util.List;
 public class CommandRegistery {
     List<Command> commands;
 
-    public CommandRegistery(GroupExpenseEqualShareCommand groupExpenseEqualShareCommand,UserGroupsCommand userGroupsCommand,UserHistoryCommand userHistoryCommand,AddUserCommand addUserCommand,CreateGroupCommand createGroupCommand,RegisterUserCommand registerUserCommand,UpdateProfileCommand updateProfileCommand){
+    public CommandRegistery(GroupSettleUpCommand groupSettleUpCommand,UserSettleUpCommand userSettleUpCommand,GroupExpenseEqualShareCommand groupExpenseEqualShareCommand,UserGroupsCommand userGroupsCommand,UserHistoryCommand userHistoryCommand,AddUserCommand addUserCommand,CreateGroupCommand createGroupCommand,RegisterUserCommand registerUserCommand,UpdateProfileCommand updateProfileCommand){
         commands=new ArrayList<>();
+        commands.add(userSettleUpCommand);
+        commands.add(groupSettleUpCommand);
         commands.add(groupExpenseEqualShareCommand);
         commands.add(userGroupsCommand);
         commands.add(userHistoryCommand);
